@@ -74,6 +74,11 @@ jobs:
       - name: pip list
         run: |
           pip list
+
+      - name: clean host
+        run: |
+          .github/workflows/clean_host.sh
+
       - name: download ds
         run: |
           echo "df -h before download"

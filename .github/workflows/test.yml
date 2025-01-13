@@ -36,6 +36,10 @@ jobs:
         run: |
           pip list
 
+      - name: download ds
+        run: |
+          python imx500_ai_toolchain/tests/download_dataset.py
+
       - name: Install dependencies
         run: |
           pip install -r imx500_ai_toolchain/tests/tensorflow/requirements.txt
@@ -66,6 +70,10 @@ jobs:
       - name: pip list
         run: |
           pip list
+
+      - name: download ds
+        run: |
+          python imx500_ai_toolchain/tests/download_dataset.py
 
       - name: Install dependencies
         run: |

@@ -29,7 +29,7 @@ def get_env(name, default=None):
 
 dev_version = "0.0.0.dev0"
 version = get_env('IMX500_AI_TOOLCHAIN_VERSION', dev_version)
-is_dev = version == dev_version
+is_dev = version == dev_version or "dev" in version
 imx500_dev_def_version = "3.14.3" if is_dev else None
 imx_500_converter_version = get_env('IMX500_CONVERTER_VERSION', imx500_dev_def_version)
 mct_dev_def_version = "2.1.1" if is_dev else None

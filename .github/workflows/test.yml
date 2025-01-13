@@ -38,14 +38,18 @@ jobs:
 
       - name: download ds
         run: |
+          echo "df -h before download"
+          df -h
           python imx500_ai_toolchain/tests/download_dataset.py
+          echo "df -h after download"
+          df -h
 
       - name: Install dependencies
         run: |
           pip install -r imx500_ai_toolchain/tests/tensorflow/requirements.txt
 
       - name: Run tests
-        run: pytest --ignore imx500_ai_toolchain/tests/pytorch
+        run: pytest -s --ignore imx500_ai_toolchain/tests/pytorch
 
 
   tests-pytorch:
@@ -70,14 +74,17 @@ jobs:
       - name: pip list
         run: |
           pip list
-
       - name: download ds
         run: |
+          echo "df -h before download"
+          df -h
           python imx500_ai_toolchain/tests/download_dataset.py
+          echo "df -h after download"
+          df -h
 
       - name: Install dependencies
         run: |
           pip install -r imx500_ai_toolchain/tests/pytorch/requirements.txt
 
       - name: Run tests
-        run: pytest --ignore imx500_ai_toolchain/tests/tensorflow
+        run: pytest -s --ignore imx500_ai_toolchain/tests/tensorflow

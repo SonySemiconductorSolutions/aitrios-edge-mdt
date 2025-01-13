@@ -1,0 +1,45 @@
+name: Publish
+
+on:
+  workflow_dispatch:
+    inputs:
+      IMX500_AI_TOOLCHAIN_VERSION:
+        description: "Version of IMX500 AI Toolchain"
+        required: true
+      IMX500_CONVERTER_VERSION:
+        description: "Version of IMX500 Converter"
+        required: true
+      MCT_VERSION:
+        description: "Version of MCT"
+        required: true
+      dry_run:
+        description: "Run without publishing (dry run)"
+        required: false
+        default: true
+        type: boolean
+jobs:
+  build-and-publish:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+
+      - name: Build
+        run: |
+          IMX500_AI_TOOLCHAIN_VERSION=${{ github.event.inputs.IMX500_AI_TOOLCHAIN_VERSION }} \
+          IMX500_CONVERTER_VERSION=${{ github.event.inputs.IMX500_CONVERTER_VERSION }} \
+          MCT_VERSION=${{ github.event.inputs.MCT_VERSION }} ./build.sh
+
+      - name: List build artifacts
+        run: |
+          ls -l dist
+
+      - name: Publish artifacts
+        if: ${{ !github.event.inputs.dry_run }}
+        run: |
+          twine upload dist/*.whl --repository-url ${{ secrets.JFROG_REPO_URL }} \
+                -u ${{ secrets.JFROG_USERNAME }} -p ${{ secrets.JFROG_PASSWORD }}

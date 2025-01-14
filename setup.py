@@ -39,7 +39,7 @@ mct_version = get_env('MCT_VERSION', mct_dev_def_version)
 setup(
     name='imx500_ai_toolchain',
     version=version,
-    packages=find_packages(exclude=["*tests*", "*test*"]),
+    packages=find_packages(),
     install_requires=[f"model-compression-toolkit=={mct_version}",
                       f'imx500-converter=={imx_500_converter_version}'],
     extras_require={

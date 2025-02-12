@@ -1,25 +1,25 @@
 ## 
-<div align="center">
-<figure>
-<img src="docs/images/toolchain%20header%20image%20small.png" width="1000"
-alt="Toolchain header" />
-</figure>
-</div>
 
-# Edge AI Toolchain User Manual
+<figure>
+<img src="../../images/EdgeMDT%20header%20image%20small.png"
+alt="Edge-MDT header" />
+</figure>
+
+# Edge AI Model Development Toolkit User Manual
 
 ## Introduction
 
-The Edge AI Toolchain package installs all the packages that are
-necessary for creating a model that can run on the IMX500 device.
+The Edge-MDT (Model Development Toolkit) package installs all the
+packages that are necessary for creating a model that can run on the
+IMX500 device.
 
 <figure id="model-dev-flow">
-<img src="docs/images/toolchain%20blocks.png"
+<img src="../../images/EdgeMDT%20blocks.png"
 alt="Flowchart showing the model development, conversion, and deployment flow from the framework environment to the AI Camera" />
-<figcaption>Figure 1: Model development flow</figcaption>
+<figcaption>Model development flow</figcaption>
 </figure>
 
-The Toolchain contains the following packages:
+The Edge-MDT contains the following packages:
 
 - [MCT](https://github.com/sony/model_optimization) (Model Compression
   Toolkit) - An open source python package for quantizing and
@@ -40,13 +40,13 @@ The Toolchain contains the following packages:
   description during its optimization process, such that the output
   model will be the best fit for the specific target device.
 
-With the introduction of this AI Toolchain package, we are providing a
-single installer that installs all the relevant packages for the user.
-This simplifies the installation procedure for the user since the
+With the introduction of the Edge-MDT package, we are providing a single
+installer that installs all the relevant packages for the user. This
+simplifies the installation procedure for the user since the
 installation can be done with single command. The installed packages are
 still operated individually.
 
-For regular usage, it is recommended to install only the AI Toolchain
+For regular usage, it is recommended to install only the Edge-MDT
 package and avoid individual installation of the each dependent package.
 
 In case of separate installation of individual dependent packages, it is
@@ -54,9 +54,9 @@ the user’s responsibility to make sure the relevant packages versions
 are compatible with each other. Such installation may require manual
 setup, and is not guaranteed to work without issues.
 
-## How to use the Toolchain
+## How to use the Edge-MDT
 
-Typical use of the Toolchain:
+Typical use of the Edge-MDT:
 
 - Take an off-the-shelf or custom, pre-trained **floating point** model,
   in the **framework environment** (Tensorflow or PyTorch)
@@ -78,21 +78,21 @@ deployment on the target device.
 For further information about MCT and Converter, please refer to the
 relevant use manuals.
 
-Note: The Packager component is not part of the Toolchain and is out of
+Note: The Packager component is not part of the Edge-MDT and is out of
 scope of this manual
 
 ### Install parameters
 
-The Toolchain package takes a parameter to select between installing the
+The Edge-MDT package takes a parameter to select between installing the
 Pytorch or Tensorflow version of it.  
 
 If you are using Pytorch:
 
-    $ pip install imx500_ai_toolchain[pt]
+    $ pip install EdgeMDT[pt]
 
 if you are using Tensorflow:
 
-    $ pip install imx500_ai_toolchain[tf]
+    $ pip install EdgeMDT[tf]
 
 ### Advanced installation cases
 
@@ -101,8 +101,8 @@ special installation.
 
 For example: if the user needs to install both pytorch and Tensorflow
 versions on the same machine, or if the user needs to install a
-combination of the Toolchain packages that is different from the
-combination that comes with the Toolchain package.
+combination of the Edge-MDT packages that is different from the
+combination that comes with the Edge-MDT package.
 
 In such cases of special installation we strongly recommend doing so in
 separate Python virtual environments (for example, using
@@ -124,7 +124,7 @@ requirements:
 
 <!-- -->
 
-Raspberry Pi 4+
+- Raspberry Pi 4+
 
 - RAM: 4 GB
 
@@ -141,7 +141,7 @@ Raspberry Pi 4+
 
 ## Framework extensions
 
-The AI Toolchain is making use of several framework extensions. The
+The Edge-MDT is making use of several framework extensions. The
 extensions are installed as dependent libraries of the MCT and Converter
 packages:
 

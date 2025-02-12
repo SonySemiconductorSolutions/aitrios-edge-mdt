@@ -1,9 +1,11 @@
 ## 
 
+<div align="center">
 <figure>
-<img src="../../images/EdgeMDT%20header%20image%20small.png"
+<img src="docs/images/EdgeMDT%20header%20image%20small.png" width="1000"
 alt="Edge-MDT header" />
 </figure>
+</div>
 
 # Edge AI Model Development Toolkit User Manual
 
@@ -14,9 +16,9 @@ packages that are necessary for creating a model that can run on the
 IMX500 device.
 
 <figure id="model-dev-flow">
-<img src="../../images/EdgeMDT%20blocks.png"
+<img src="docs/images/EdgeMDT%20blocks.png"
 alt="Flowchart showing the model development, conversion, and deployment flow from the framework environment to the AI Camera" />
-<figcaption>Model development flow</figcaption>
+<figcaption>Figure 1: Model development flow</figcaption>
 </figure>
 
 The Edge-MDT contains the following packages:

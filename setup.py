@@ -28,7 +28,7 @@ def get_env(name, default=None):
     return value
 
 dev_version = "0.0.0.dev0"
-version = get_env('IMX500_AI_TOOLCHAIN_VERSION', dev_version)
+version = get_env('EDGE_MDT_VERSION', dev_version)
 is_dev = version == dev_version or "dev" in version
 imx500_dev_def_version = "3.14.3" if is_dev else None
 imx_500_converter_version = get_env('IMX500_CONVERTER_VERSION', imx500_dev_def_version)
@@ -37,7 +37,7 @@ mct_version = get_env('MCT_VERSION', mct_dev_def_version)
 
 
 setup(
-    name='imx500_ai_toolchain',
+    name='edge-mdt',
     version=version,
     packages=find_packages(),
     install_requires=[f"model-compression-toolkit=={mct_version}",

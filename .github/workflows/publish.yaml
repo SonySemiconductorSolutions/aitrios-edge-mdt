@@ -3,8 +3,8 @@ name: Publish
 on:
   workflow_dispatch:
     inputs:
-      IMX500_AI_TOOLCHAIN_VERSION:
-        description: "Version of IMX500 AI Toolchain"
+      EDGE_MDT_VERSION:
+        description: "Version of Edge MDT"
         required: true
       IMX500_CONVERTER_VERSION:
         description: "Version of IMX500 Converter"
@@ -32,7 +32,7 @@ jobs:
 
       - name: Build
         run: |
-          IMX500_AI_TOOLCHAIN_VERSION=${{ github.event.inputs.IMX500_AI_TOOLCHAIN_VERSION }} \
+          EDGE_MDT_VERSION=${{ github.event.inputs.EDGE_MDT_VERSION }} \
           IMX500_CONVERTER_VERSION=${{ github.event.inputs.IMX500_CONVERTER_VERSION }} \
           MCT_VERSION=${{ github.event.inputs.MCT_VERSION }} ./build.sh
 

@@ -30,7 +30,7 @@ jobs:
           python -m pip install --upgrade pip
           ./build.sh
           pip install tensorflow==${{ matrix.tf-version }}
-          pip install dist/imx500_ai_toolchain-0.0.0.dev0-py3-none-any.whl['tf']
+          pip install dist/edge_mdt-0.0.0.dev0-py3-none-any.whl['tf']
 
       - name: pip list
         run: |
@@ -54,7 +54,7 @@ jobs:
         run : |
           python -m pip install --upgrade pip
           ./build.sh
-          pip install dist/imx500_ai_toolchain-0.0.0.dev0-py3-none-any.whl['pt']
+          pip install dist/edge_mdt-0.0.0.dev0-py3-none-any.whl['pt']
 
       - name: pip list
         run: |

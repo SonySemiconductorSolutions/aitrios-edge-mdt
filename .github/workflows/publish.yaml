@@ -12,6 +12,8 @@ on:
       MCT_VERSION:
         description: "Version of MCT"
         required: true
+      TPC_VERSION:
+        description: "version of edge-mdt-tpc"
       dry_run:
         description: "Run without publishing (dry run)"
         required: false
@@ -34,7 +36,8 @@ jobs:
         run: |
           EDGE_MDT_VERSION=${{ github.event.inputs.EDGE_MDT_VERSION }} \
           IMX500_CONVERTER_VERSION=${{ github.event.inputs.IMX500_CONVERTER_VERSION }} \
-          MCT_VERSION=${{ github.event.inputs.MCT_VERSION }} ./build.sh
+          MCT_VERSION=${{ github.event.inputs.MCT_VERSION }} \
+          TPC_VERSION=${{ github.event.inputs.TPC_VERSION }} ./build.sh
 
       - name: List build artifacts
         run: |

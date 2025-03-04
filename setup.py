@@ -32,8 +32,10 @@ version = get_env('EDGE_MDT_VERSION', dev_version)
 is_dev = version == dev_version or "dev" in version
 imx500_dev_def_version = "3.14.3" if is_dev else None
 imx_500_converter_version = get_env('IMX500_CONVERTER_VERSION', imx500_dev_def_version)
-mct_dev_def_version = "2.1.1" if is_dev else None
+mct_dev_def_version = "2.3.0" if is_dev else None
 mct_version = get_env('MCT_VERSION', mct_dev_def_version)
+tpc_dev_def_version = "1.0.0" if is_dev else None
+tcp_version = get_env('TPC_VERSION', tpc_dev_def_version)
 
 
 setup(
@@ -41,6 +43,7 @@ setup(
     version=version,
     packages=find_packages(),
     install_requires=[f"model-compression-toolkit=={mct_version}",
+                      f"edge-mdt-tpc=={tcp_version}",
                       f'imx500-converter=={imx_500_converter_version}'],
     extras_require={
         'pt': [f'imx500-converter[pt]=={imx_500_converter_version}'],

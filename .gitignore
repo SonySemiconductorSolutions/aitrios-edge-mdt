@@ -1,5 +1,5 @@
 /dist/
-/imx500_ai_toolchain/tests/imagenet/
+/edge_mdt/tests/imagenet/
 /tutorials/.ipynb_checkpoints/
 /tutorials/mobilenet_pt/
 /tutorials/mobilenet_tf/

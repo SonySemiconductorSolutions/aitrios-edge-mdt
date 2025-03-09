@@ -90,11 +90,11 @@ Pytorch or Tensorflow version of it.
 
 If you are using Pytorch:
 
-    $ pip install EdgeMDT[pt]
+    $ pip install edge-mdt[pt]
 
 if you are using Tensorflow:
 
-    $ pip install EdgeMDT[tf]
+    $ pip install edge-mdt[tf]
 
 ### Advanced installation cases
 

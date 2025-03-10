@@ -4,7 +4,13 @@ on:
   push:
     branches:
       - main
+    paths-ignore:
+      - '**/*.md'
+      - '**/*.adoc'
   pull_request:
+    paths-ignore:
+      - '**/*.md'
+      - '**/*.adoc'
 
 
 concurrency:
@@ -19,7 +25,7 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        tf-version: [2.12, 2.14, 2.15]
+        tf-version: [2.12, 2.13, 2.14, 2.15]
 
     steps:
       - name: Checkout code
@@ -34,7 +40,7 @@ jobs:
         run : |
           python -m pip install --upgrade pip
           ./build.sh
-          pip install jupyterlab tensorflow==${{ matrix.tf-version }}
+          pip install jupyterlab ipython==7.34.0 tensorflow==${{ matrix.tf-version }}
           pip install dist/edge_mdt-0.0.0.dev0-py3-none-any.whl['tf']
 
       - name: pip list

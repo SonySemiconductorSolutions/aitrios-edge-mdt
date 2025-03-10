@@ -57,9 +57,6 @@ jobs:
             ./tutorials/mobilenet_tf/packerOut.zip
 
 
-
-
-
   build-tensorflow-py-script:
     name: Build TensorFlow py script
     runs-on: ubuntu-latest

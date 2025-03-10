@@ -43,8 +43,8 @@ jobs:
           jupyter nbconvert --to notebook --execute keras_mobilenetv2.ipynb --output keras_mobilenetv2_output.ipynb
           
       - name: upload output
-        working-directory: tutorials
         uses: actions/upload-artifact@v4
+        working-directory: tutorials
         with:
           name: output-tf-${{ matrix.tf-version }}
           path: keras_mobilenetv2_output.ipynb

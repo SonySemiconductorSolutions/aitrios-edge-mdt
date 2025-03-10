@@ -1,7 +1,7 @@
 //the docbook line is needed for converting to xml and md
 :doctype: book
 
-ifndef::imagesdir[:imagesdir: ../../images]
+ifndef::imagesdir[:imagesdir: docs/images]
 
 // No header image for AITRIOS developer site edition
 ifndef::developer-portal[]

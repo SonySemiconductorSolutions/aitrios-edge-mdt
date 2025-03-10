@@ -38,14 +38,16 @@ jobs:
           pip list
 
       - name: run notebook
+        working-directory: tutorials
         run: |
-          jupyter nbconvert --to notebook --execute ./tutorials/keras_mobilenetv2.ipynb --output ./tutorials/keras_mobilenetv2_output.ipynb
+          jupyter nbconvert --to notebook --execute keras_mobilenetv2.ipynb --output keras_mobilenetv2_output.ipynb
           
       - name: upload output
+        working-directory: tutorials
         uses: actions/upload-artifact@v4
         with:
           name: output-tf-${{ matrix.tf-version }}
-          path: ./tutorials/keras_mobilenetv2_output.ipynb
+          path: keras_mobilenetv2_output.ipynb
 
 
   tests-pytorch:
@@ -53,6 +55,7 @@ jobs:
     runs-on: ubuntu-latest
 
     strategy:
+      fail-fast: false
       matrix:
         pt-version: [ '2.0', 2.1, 2.2, 2.3, 2.4, 2.5, 2.6]
 
@@ -77,12 +80,14 @@ jobs:
           pip list
 
       - name: run notebook
+        working-directory: tutorials
         run: |
-          jupyter nbconvert --to notebook --execute ./tutorials/pytorch_mobilenetv2.ipynb --output ./tutorials/pytorch_mobilenetv2.ipynb
+          jupyter nbconvert --to notebook --execute pytorch_mobilenetv2.ipynb --output pytorch_mobilenetv2.ipynb
           
 
       - name: upload output
         uses: actions/upload-artifact@v4
+        working-directory: tutorials
         with:
           name: output-pt-${{ matrix.pt-version }}
-          path: ./tutorials/pytorch_mobilenetv2.ipynb
+          path: pytorch_mobilenetv2.ipynb

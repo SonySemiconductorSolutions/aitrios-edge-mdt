@@ -30,7 +30,7 @@ jobs:
         run : |
           python -m pip install --upgrade pip
           ./build.sh
-          pip install jupyterlab tensorflow==${{ matrix.tf-version }}
+          pip install typing_extensions>=4.12 jupyterlab tensorflow==${{ matrix.tf-version }}
           pip install dist/edge_mdt-0.0.0.dev0-py3-none-any.whl['tf']
 
       - name: pip list
@@ -45,8 +45,14 @@ jobs:
       - name: upload output
         uses: actions/upload-artifact@v4
         with:
-          name: output-tf-${{ matrix.tf-version }}
-          path: ./tutorials/keras_mobilenetv2_output.ipynb
+          name: tf-${{ matrix.tf-version }}
+          if-no-files-found: error
+          retention-days: 1
+          path: |
+            ./tutorials/keras_mobilenetv2_output.ipynb
+            ./tutorials/mobilenet_tf/packerOut.zip
+
+
 
 
   tests-pytorch:
@@ -82,10 +88,13 @@ jobs:
         working-directory: tutorials
         run: |
           jupyter nbconvert --to notebook --execute pytorch_mobilenetv2.ipynb --output pytorch_mobilenetv2.ipynb
-          
 
       - name: upload output
         uses: actions/upload-artifact@v4
         with:
-          name: output-pt-${{ matrix.pt-version }}
-          path: ./tutorials/pytorch_mobilenetv2.ipynb
+          name: pt-${{ matrix.pt-version }}
+          if-no-files-found: error
+          retention-days: 1
+          path: |
+            ./tutorials/pytorch_mobilenetv2.ipynb
+            ./tutorials/mobilenet_pt/packerOut.zip

@@ -36,17 +36,21 @@ mct_dev_def_version = "2.3.0" if is_dev else None
 mct_version = get_env('MCT_VERSION', mct_dev_def_version)
 tpc_dev_def_version = "1.0.0" if is_dev else None
 tcp_version = get_env('TPC_VERSION', tpc_dev_def_version)
+custom_layers_def_version = "0.2.0" if is_dev else None
+custom_layers_version = get_env('CUSTOM_LAYERS_VERSION', custom_layers_def_version)
 
 
 setup(
     name='edge-mdt',
     version=version,
     packages=find_packages(),
-    install_requires=[f"model-compression-toolkit=={mct_version}",
-                      f"edge-mdt-tpc=={tcp_version}",
-                      f'imx500-converter=={imx_500_converter_version}'],
+    install_requires=[f"model-compression-toolkit~={mct_version}",
+                      f"edge-mdt-tpc~={tcp_version}",
+                      f'imx500-converter~={imx_500_converter_version}',
+                      f'sony-custom-layers~={custom_layers_version}'
+                      ],
     extras_require={
-        'pt': [f'imx500-converter[pt]=={imx_500_converter_version}'],
-        'tf': [f'imx500-converter[tf]=={imx_500_converter_version}']
+        'pt': [f'imx500-converter[pt]~={imx_500_converter_version}'],
+        'tf': [f'imx500-converter[tf]~={imx_500_converter_version}']
     },
 )

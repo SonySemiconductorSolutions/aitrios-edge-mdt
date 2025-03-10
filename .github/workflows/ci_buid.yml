@@ -4,7 +4,13 @@ on:
   push:
     branches:
       - main
+    paths-ignore:
+      - '**/*.md'
+      - '**/*.adoc'
   pull_request:
+    paths-ignore:
+      - '**/*.md'
+      - '**/*.adoc'
 
 
 concurrency:

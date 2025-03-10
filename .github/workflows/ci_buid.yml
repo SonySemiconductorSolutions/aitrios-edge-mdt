@@ -37,7 +37,7 @@ jobs:
           pip install jupyterlab tensorflow==${{ matrix.tf-version }}
           if [ "${{ matrix.tf-version }}" == "2.13" ]; then
             # fix bug when running with tf 2.13 fails to run the notebook
-            pip install typing_extensions==4.12.2
+            pip install typing_extensions==4.12.2 --no-deps
           fi
           pip install dist/edge_mdt-0.0.0.dev0-py3-none-any.whl['tf']
 

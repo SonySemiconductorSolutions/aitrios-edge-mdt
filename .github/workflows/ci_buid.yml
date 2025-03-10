@@ -29,17 +29,31 @@ jobs:
         run : |
           python -m pip install --upgrade pip
           ./build.sh
-          pip install tensorflow==${{ matrix.tf-version }}
+          pip install jupyterlab tensorflow==${{ matrix.tf-version }}
           pip install dist/edge_mdt-0.0.0.dev0-py3-none-any.whl['tf']
 
       - name: pip list
         run: |
           pip list
 
+      - name: run notebook
+        run: |
+          jupyter nbconvert --to notebook --execute ./tutorials/keras_mobilenetv2.ipynb --output ./tutorials/keras_mobilenetv2_output.ipynb
+          
+      - name: upload output
+        uses: actions/upload-artifact@v4
+        with:
+          name: keras_mobilenetv2
+          path: ./tutorials/keras_mobilenetv2_output.ipynb
+
 
   tests-pytorch:
     name: Build PyTorch
     runs-on: ubuntu-latest
+
+    strategy:
+      matrix:
+        pt-version: [ '2.0', 2.1, 2.2, 2.3, 2.4, 2.5, 2.6]
 
     steps:
       - name: Checkout code
@@ -54,8 +68,20 @@ jobs:
         run : |
           python -m pip install --upgrade pip
           ./build.sh
+          pip install jupyterlab torch==${{ matrix.pt-version }}
           pip install dist/edge_mdt-0.0.0.dev0-py3-none-any.whl['pt']
 
       - name: pip list
         run: |
           pip list
+
+      - name: run notebook
+        run: |
+          jupyter nbconvert --to notebook --execute ./tutorials/pytorch_mobilenetv2.ipynb --output ./tutorials/pytorch_mobilenetv2.ipynb
+          
+
+      - name: upload output
+        uses: actions/upload-artifact@v4
+        with:
+          name: pytorch_mobilenetv2
+          path: ./tutorials/pytorch_mobilenetv2.ipynb

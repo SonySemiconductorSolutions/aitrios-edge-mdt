@@ -53,12 +53,12 @@ The Edge-MDT package takes a parameter to select between installing the PyTorch 
 
 If you are using PyTorch:
 ....
-$ pip install EdgeMDT[pt]
+$ pip install edge-mdt[pt]
 ....
 
 if you are using TensorFlow:
 ....
-$ pip install EdgeMDT[tf]
+$ pip install edge-mdt[tf]
 ....
 
 

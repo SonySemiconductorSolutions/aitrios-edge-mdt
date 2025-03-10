@@ -14,6 +14,11 @@ on:
         required: true
       TPC_VERSION:
         description: "version of edge-mdt-tpc"
+        required: true
+      CUSTOM_LAYERS_VERSION:
+        description: "version of edge-mdt-custom-layers"
+        required: true
+
       dry_run:
         description: "Run without publishing (dry run)"
         required: false
@@ -37,6 +42,7 @@ jobs:
           EDGE_MDT_VERSION=${{ github.event.inputs.EDGE_MDT_VERSION }} \
           IMX500_CONVERTER_VERSION=${{ github.event.inputs.IMX500_CONVERTER_VERSION }} \
           MCT_VERSION=${{ github.event.inputs.MCT_VERSION }} \
+          CUSTOM_LAYERS_VERSION=${{ github.event.inputs.CUSTOM_LAYERS_VERSION }} \
           TPC_VERSION=${{ github.event.inputs.TPC_VERSION }} ./build.sh
 
       - name: List build artifacts

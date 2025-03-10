@@ -44,10 +44,9 @@ jobs:
           
       - name: upload output
         uses: actions/upload-artifact@v4
-        working-directory: tutorials
         with:
           name: output-tf-${{ matrix.tf-version }}
-          path: keras_mobilenetv2_output.ipynb
+          path: ./tutorials/keras_mobilenetv2_output.ipynb
 
 
   tests-pytorch:
@@ -87,7 +86,6 @@ jobs:
 
       - name: upload output
         uses: actions/upload-artifact@v4
-        working-directory: tutorials
         with:
           name: output-pt-${{ matrix.pt-version }}
-          path: pytorch_mobilenetv2.ipynb
+          path: ./tutorials/pytorch_mobilenetv2.ipynb

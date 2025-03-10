@@ -13,6 +13,7 @@ jobs:
     runs-on: ubuntu-latest
 
     strategy:
+      fail-fast: false
       matrix:
         tf-version: [2.12, 2.13, 2.14, 2.15]
 
@@ -43,7 +44,7 @@ jobs:
       - name: upload output
         uses: actions/upload-artifact@v4
         with:
-          name: keras_mobilenetv2
+          name: output-tf-${{ matrix.tf-version }}
           path: ./tutorials/keras_mobilenetv2_output.ipynb
 
 
@@ -83,5 +84,5 @@ jobs:
       - name: upload output
         uses: actions/upload-artifact@v4
         with:
-          name: pytorch_mobilenetv2
+          name: output-pt-${{ matrix.pt-version }}
           path: ./tutorials/pytorch_mobilenetv2.ipynb

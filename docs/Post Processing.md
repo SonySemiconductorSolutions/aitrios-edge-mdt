@@ -49,11 +49,11 @@ Edge-MDT offers the following options for running PP workloads on the Edge AI Pr
 *	Custom Layers – Edge-MDT supports several common layers that can be converted to run on the Edge AI Processor.
 
 ### 16bit quantization for selected layers ###
-Edge-MDT supports large span of layers and operators that can be converted to run on the Edge AI Processor. In case the post processing is fully comprised from such building blocks, then the user can just convert them to run on the Edge AI Processor. <br>
+Edge-MDT supports a large range of layers and operators that can be converted to run on the Edge AI Processor. In case the post processing is fully comprised of such building blocks, then the user can just convert them to run on the Edge AI Processor. <br>
 In the typical case it would mean that such layers will need to be configured to use 16bit quantization bit-width.<br>
-The user can achieve it by either using the automatic mixed-precision mode of MCT, or manually set specific layers to use 16bit. For more info please refer to [MCT documentation](https://github.com/sony/model_optimization).
+The user can achieve it by either using the automatic mixed-precision mode of MCT, or manually setting specific layers to use 16bit. For more info please refer to [MCT documentation](https://github.com/sony/model_optimization).
 
-Note that the use of 16bit quantization for specific layers is considered an advanced feature, since the user might need to dive into the accuracy optimization of the model.
+Note that the use of 16bit quantization for specific layers is considered an advanced feature, since the user might need to delve into the accuracy optimization of the model.
 
 ### Custom Layers ###
 In case the operators that comprise the PP block cannot be converted to run on the Edge AI Processor, Edge-MDT provides a set of methods that can be used. <br>
@@ -73,7 +73,7 @@ The diagram depicts a design where post processing is run on the Edge AI Process
 
 For more information on custom layers and how to use them please refer to the [custom layers documentation](https://github.com/sony/custom_layers/tree/main/tutorials/pytorch).
 
-Note that the use of custom layers is considered an advanced feature, since the user will need to make changes to the code of the model, find how to peel off an existing layer and replace it with the custom layer.
+Note that the use of custom layers is considered an advanced feature, as the user will need to make changes to the code of the model, *determine how to remove an existing layer and replace it with the custom layer.
 
 ### Summary ###
-To summarize, there are several mechanisms in Edge-MDT that the user can utilize in order to implement post processing for a specific model.
+To summarize, there are several mechanisms in Edge-MDT that the user can utilize to implement post processing for a specific model.

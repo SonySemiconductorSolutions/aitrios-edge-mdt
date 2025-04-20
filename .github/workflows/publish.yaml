@@ -52,5 +52,4 @@ jobs:
       - name: Publish artifacts
         if: ${{ !github.event.inputs.dry_run }}
         run: |
-          twine upload dist/*.whl --repository-url ${{ secrets.JFROG_REPO_URL }} \
-                -u ${{ secrets.JFROG_USERNAME }} -p ${{ secrets.JFROG_PASSWORD }}
+          twine upload dist/*.whl --repository-url pypi -u __token__ -p ${{ secrets.PYPITOKEN }}

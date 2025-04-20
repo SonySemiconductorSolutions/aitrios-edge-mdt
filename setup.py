@@ -38,10 +38,11 @@ tpc_dev_def_version = "1.0.0" if is_dev else None
 tcp_version = get_env('TPC_VERSION', tpc_dev_def_version)
 custom_layers_def_version = "0.2.0" if is_dev else None
 custom_layers_version = get_env('CUSTOM_LAYERS_VERSION', custom_layers_def_version)
-
+is_nightly = os.environ.get("IS_NIGHTLY", "true") == "true"
+name = 'edge-mdt-nightly' if is_nightly else 'edge-mdt'
 
 setup(
-    name='edge-mdt',
+    name=name,
     version=version,
     packages=find_packages(),
     install_requires=[f"model-compression-toolkit~={mct_version}",
@@ -53,4 +54,11 @@ setup(
         'pt': [f'imx500-converter[pt]~={imx_500_converter_version}'],
         'tf': [f'imx500-converter[tf]~={imx_500_converter_version}']
     },
+    classifiers=[
+              "Programming Language :: Python :: 3",
+              "License :: OSI Approved :: Apache Software License",
+              "Operating System :: OS Independent",
+              "Topic :: Scientific/Engineering :: Artificial Intelligence"
+          ],
+    python_requires='>=3.9',
 )

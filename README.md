@@ -1,9 +1,10 @@
 ## 
-
+<div align="center">
 <figure>
-<img src="docs/images/EdgeMDT-header-image-small.png"
+<img src="docs/images/EdgeMDT-header-image-small.png" width="1000"
 alt="Edge-MDT header" />
 </figure>
+</div>
 
 # Edge AI Model Development Toolkit User Manual
 
@@ -16,8 +17,9 @@ so that it can run on your IMX500 device.
 <figure id="model-dev-flow">
 <img src="docs/images/EdgeMDT-blocks.png"
 alt="Flowchart showing the model development, conversion, and deployment flow from the framework environment to the AI Camera" />
-<figcaption>Model development flow</figcaption>
+<figcaption>Figure 1: Model development flow</figcaption>
 </figure>
+<br><br>
 
 Edge-MDT contains the following packages:
 
@@ -114,8 +116,8 @@ conflicts between packages or versions.
 ### System requirements
 
 The system running the neural network converter should at least meet the
-requirements:
-
+requirements: <br>
+Linux PC (recommended)
 - RAM: 4 GB
 
 - Python: 3.11
@@ -125,7 +127,7 @@ requirements:
 - OS: Tested and verified with Ubuntu 20.04 and 22.04.
 
 <!-- -->
-
+Raspberry Pi
 - Raspberry Pi 4+
 
 - RAM: 4 GB

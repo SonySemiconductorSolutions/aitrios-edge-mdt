@@ -41,7 +41,7 @@ jobs:
           python -m pip install --upgrade pip
           ./build.sh
           pip install jupyterlab ipython==7.34.0 tensorflow==${{ matrix.tf-version }}
-          pip install dist/edge_mdt-0.0.0.dev0-py3-none-any.whl['tf']
+          pip install dist/edge_mdt_nightly-0.0.0.dev0-py3-none-any.whl['tf']
 
       - name: pip list
         run: |
@@ -87,7 +87,7 @@ jobs:
           python -m pip install --upgrade pip
           ./build.sh
           pip install jupyterlab torch==${{ matrix.pt-version }}
-          pip install dist/edge_mdt-0.0.0.dev0-py3-none-any.whl['pt']
+          pip install dist/edge_mdt_nightly-0.0.0.dev0-py3-none-any.whl['pt']
 
       - name: pip list
         run: |

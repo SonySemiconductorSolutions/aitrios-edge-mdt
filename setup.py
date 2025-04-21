@@ -38,12 +38,23 @@ tpc_dev_def_version = "1.0.0" if is_dev else None
 tcp_version = get_env('TPC_VERSION', tpc_dev_def_version)
 custom_layers_def_version = "0.2.0" if is_dev else None
 custom_layers_version = get_env('CUSTOM_LAYERS_VERSION', custom_layers_def_version)
+is_nightly = os.environ.get("IS_NIGHTLY", "true") == "true"
+name = 'edge-mdt-nightly' if is_nightly else 'edge-mdt'
+
+def get_log_description():
+    with open("README.md", "r") as fh:
+        long_description = fh.read()
+    return long_description
 
 
 setup(
-    name='edge-mdt',
+    name=name,
+    long_description=get_log_description(),
+    long_description_content_type="text/markdown",
+    description='Edge AI Model Development Toolkit',
     version=version,
     packages=find_packages(),
+    license="Apache-2.0",
     install_requires=[f"model-compression-toolkit~={mct_version}",
                       f"edge-mdt-tpc~={tcp_version}",
                       f'imx500-converter~={imx_500_converter_version}',
@@ -53,4 +64,10 @@ setup(
         'pt': [f'imx500-converter[pt]~={imx_500_converter_version}'],
         'tf': [f'imx500-converter[tf]~={imx_500_converter_version}']
     },
+    classifiers=[
+              "Programming Language :: Python :: 3",
+              "Operating System :: OS Independent",
+              "Topic :: Scientific/Engineering :: Artificial Intelligence"
+          ],
+    python_requires='>=3.9',
 )

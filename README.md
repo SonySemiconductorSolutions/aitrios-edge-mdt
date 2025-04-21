@@ -1,7 +1,7 @@
 ## 
 <div align="center">
 <figure>
-<img src="docs/images/EdgeMDT-header-image-small.png" width="1000"
+<img src="https://raw.githubusercontent.com/SonySemiconductorSolutions/aitrios-edge-mdt/main/docs/images/EdgeMDT-header-image-small.png" width="1000"
 alt="Edge-MDT header" />
 </figure>
 </div>
@@ -15,7 +15,7 @@ packages that are necessary to quantise, compress, and convert a model
 so that it can run on your IMX500 device.
 
 <figure id="model-dev-flow">
-<img src="docs/images/EdgeMDT-blocks.png"
+<img src="https://raw.githubusercontent.com/SonySemiconductorSolutions/aitrios-edge-mdt/main/docs/images/EdgeMDT-blocks.png"
 alt="Flowchart showing the model development, conversion, and deployment flow from the framework environment to the AI Camera" />
 <figcaption>Figure 1: Model development flow</figcaption>
 </figure>

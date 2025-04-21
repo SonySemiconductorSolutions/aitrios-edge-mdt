@@ -41,8 +41,16 @@ custom_layers_version = get_env('CUSTOM_LAYERS_VERSION', custom_layers_def_versi
 is_nightly = os.environ.get("IS_NIGHTLY", "true") == "true"
 name = 'edge-mdt-nightly' if is_nightly else 'edge-mdt'
 
+def get_log_description():
+    with open("README.md", "r") as fh:
+        long_description = fh.read()
+    return long_description
+
+
 setup(
     name=name,
+    long_description=get_log_description(),
+    long_description_content_type="text/markdown",
     description='Edge AI Model Development Toolkit',
     version=version,
     packages=find_packages(),

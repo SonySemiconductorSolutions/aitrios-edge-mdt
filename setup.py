@@ -32,7 +32,7 @@ version = get_env('EDGE_MDT_VERSION', dev_version)
 is_dev = version == dev_version or "dev" in version
 imx500_dev_def_version = "3.16.0" if is_dev else None
 imx_500_converter_version = get_env('IMX500_CONVERTER_VERSION', imx500_dev_def_version)
-mct_dev_def_version = "2.4.0" if is_dev else None
+mct_dev_def_version = "2.3.0" if is_dev else None
 mct_version = get_env('MCT_VERSION', mct_dev_def_version)
 tpc_dev_def_version = "1.1.0" if is_dev else None
 tcp_version = get_env('TPC_VERSION', tpc_dev_def_version)

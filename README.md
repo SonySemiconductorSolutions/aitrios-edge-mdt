@@ -140,8 +140,8 @@ Raspberry Pi
 
 | **Framework** | **Tested FW versions** | **Tested Python versions** | **Serialization** | **Opset** |
 |----|----|----|----|----|
-| PyTorch | 2.2-2.5 | 3.9-3.11 | .onnx | 15-20 |
-| TensorFlow | 2.12-2.15 | 3.9-3.11 | .keras |  |
+| PyTorch | 2.3-2.6 | 3.9-3.12 | .onnx | 15-20 |
+| TensorFlow | 2.14-2.15 | 3.9-3.11 | .keras |  |
 
 ## Framework extensions
 

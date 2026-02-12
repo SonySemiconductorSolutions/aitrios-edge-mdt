@@ -29,9 +29,7 @@ def get_env(name, default=None):
 
 dev_version = "0.0.0.dev0"
 version = get_env('EDGE_MDT_VERSION', dev_version)
-print("version:", version)
 is_dev = version == dev_version or "dev" in version
-print("is_dev:", is_dev)
 imx500_dev_def_version = "3.17.3" if is_dev else None
 imx_500_converter_version = get_env('IMX500_CONVERTER_VERSION', imx500_dev_def_version)
 mct_dev_def_version = "2.4.5" if is_dev else None

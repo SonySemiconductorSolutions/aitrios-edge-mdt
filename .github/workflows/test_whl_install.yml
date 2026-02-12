@@ -1,6 +1,7 @@
 name: Test whl install
 
 on:
+  pull_request:
   workflow_dispatch:
     inputs:
       EDGE_MDT_VERSION:

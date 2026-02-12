@@ -35,7 +35,7 @@ imx_500_converter_version = get_env('IMX500_CONVERTER_VERSION', imx500_dev_def_v
 mct_dev_def_version = "2.4.5" if is_dev else None
 mct_version = get_env('MCT_VERSION', mct_dev_def_version)
 tpc_dev_def_version = "1.2.0" if is_dev else None
-tcp_version = get_env('TPC_VERSION', tpc_dev_def_version)
+tpc_version = get_env('TPC_VERSION', tpc_dev_def_version)
 
 def get_log_description():
     with open("README.md", "r") as fh:
@@ -54,7 +54,7 @@ setup(
     packages=find_packages(),
     license="Apache-2.0",
     install_requires=[f"model-compression-toolkit~={mct_version}",
-                      f"edge-mdt-tpc~={tcp_version}",
+                      f"edge-mdt-tpc~={tpc_version}",
                       f'imx500-converter~={imx_500_converter_version}'
                       ],
     extras_require={

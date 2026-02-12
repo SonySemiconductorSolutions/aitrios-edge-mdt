@@ -1,7 +1,6 @@
 name: Test whl install
 
 on:
-  pull_request:
   workflow_dispatch:
     inputs:
       EDGE_MDT_VERSION:
@@ -32,10 +31,10 @@ jobs:
 
       - name: Build
         run: |
-          EDGE_MDT_VERSION='1.2.0.dev0' \
-          IMX500_CONVERTER_VERSION='3.17.3' \
-          MCT_VERSION='2.4.2' \
-          TPC_VERSION='1.2.0' ./build.sh
+          EDGE_MDT_VERSION=${{ github.event.inputs.EDGE_MDT_VERSION }} \
+          IMX500_CONVERTER_VERSION=${{ github.event.inputs.IMX500_CONVERTER_VERSION }} \
+          MCT_VERSION=${{ github.event.inputs.MCT_VERSION }} \
+          TPC_VERSION=${{ github.event.inputs.TPC_VERSION }} ./build.sh
 
       - name: Install WHL file
         run: |
@@ -59,10 +58,10 @@ jobs:
 
       - name: Build
         run: |
-          EDGE_MDT_VERSION='1.2.0.dev0' \
-          IMX500_CONVERTER_VERSION='3.17.3' \
-          MCT_VERSION='2.4.2' \
-          TPC_VERSION='1.2.0' ./build.sh
+          EDGE_MDT_VERSION=${{ github.event.inputs.EDGE_MDT_VERSION }} \
+          IMX500_CONVERTER_VERSION=${{ github.event.inputs.IMX500_CONVERTER_VERSION }} \
+          MCT_VERSION=${{ github.event.inputs.MCT_VERSION }} \
+          TPC_VERSION=${{ github.event.inputs.TPC_VERSION }} ./build.sh
 
       - name: Install WHL file
         run: |

@@ -42,7 +42,8 @@ jobs:
           whl_file=$(find . -iname "*.whl")
           echo $whl_file
           pip install "$whl_file[pt]"
-          pip list
+          pip list | grep -e model -e mct -e edge -e imx500 -e uni
+          imxconv-pt -v
 
   build_and_run_tensorflow:
     runs-on: ubuntu-latest
@@ -60,7 +61,7 @@ jobs:
         run: |
           EDGE_MDT_VERSION='1.2.0.dev0' \
           IMX500_CONVERTER_VERSION='3.17.3' \
-          MCT_VERSION='2.4.5' \
+          MCT_VERSION='2.4.2' \
           TPC_VERSION='1.2.0' ./build.sh
 
       - name: Install WHL file
@@ -68,4 +69,5 @@ jobs:
           whl_file=$(find . -iname "*.whl")
           echo $whl_file
           pip install "$whl_file[tf]"
-          pip list
+          pip list | grep -e model -e mct -e edge -e imx500 -e uni
+          imxconv-tf -v

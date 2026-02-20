@@ -124,7 +124,7 @@ Linux PC (recommended)
 
 - JVM 17
 
-- OS: Tested and verified with Ubuntu 20.04 and 22.04.
+- OS: Tested and verified with Ubuntu 22.04.
 
 <!-- -->
 Raspberry Pi
@@ -140,8 +140,8 @@ Raspberry Pi
 
 | **Framework** | **Tested FW versions** | **Tested Python versions** | **Serialization** | **Opset** |
 |----|----|----|----|----|
-| PyTorch | 2.3-2.6 | 3.9-3.12 | .onnx | 15-20 |
-| TensorFlow | 2.14-2.15 | 3.9-3.11 | .keras |  |
+| PyTorch | 2.3-2.6 | 3.10-3.12 | .onnx | 15-20 |
+| TensorFlow | 2.14-2.15 | 3.10-3.11 | .keras |  |
 
 ## Framework extensions
 

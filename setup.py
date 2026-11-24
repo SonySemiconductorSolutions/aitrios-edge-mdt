@@ -30,12 +30,10 @@ def get_env(name, default=None):
 dev_version = "0.0.0.dev0"
 version = get_env('EDGE_MDT_VERSION', dev_version)
 is_dev = version == dev_version or "dev" in version
-imx500_dev_def_version = "3.18.2" if is_dev else None
+imx500_dev_def_version = "3.19.2" if is_dev else None
 imx_500_converter_version = get_env('IMX500_CONVERTER_VERSION', imx500_dev_def_version)
-mct_dev_def_version = "2.5.1" if is_dev else None
+mct_dev_def_version = "2.6.2" if is_dev else None
 mct_version = get_env('MCT_VERSION', mct_dev_def_version)
-tpc_dev_def_version = "1.3.0" if is_dev else None
-tpc_version = get_env('TPC_VERSION', tpc_dev_def_version)
 
 def get_log_description():
     with open("README.md", "r") as fh:
@@ -54,7 +52,6 @@ setup(
     packages=find_packages(),
     license="Apache-2.0",
     install_requires=[f"model-compression-toolkit~={mct_version}",
-                      f"edge-mdt-tpc~={tpc_version}",
                       f'imx500-converter~={imx_500_converter_version}'
                       ],
     extras_require={
